@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio | Web Engineering Assignment 01</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="progress"></div>
+
+  <header class="navbar">
+    <a href="#home" class="logo">MyPortfolio</a>
+    <nav id="nav">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-tools">
+      <span id="clock" title="Live clock"></span>
+      <button id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+      <button id="menuToggle" aria-label="Menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <p class="greeting" id="greeting"></p>
+      <h1>Hi, I'm <span class="accent">Huzaifa Ahmad</span></h1>
+      <h2>I am a <span id="typing"></span><span class="cursor">|</span></h2>
+      <p class="lead">Web Engineering student building clean, responsive websites.</p>
+      <a href="#projects" class="btn">View My Work</a>
+    </section>
+
+    <!-- ABOUT + COUNTERS -->
+    <section id="about" class="section reveal">
+      <h2 class="title">About Me</h2>
+      <p class="about-text">
+        I'm a student learning web engineering. I enjoy turning ideas into
+        working websites using HTML, CSS and JavaScript. This site is my
+        Assignment 01: a static website with a little bit of dynamic
+        behaviour driven by user interaction.
+      </p>
+      <div class="counters">
+        <div class="counter"><span class="num" data-target="12">0</span><small>Projects</small></div>
+        <div class="counter"><span class="num" data-target="5">0</span><small>Languages</small></div>
+        <div class="counter"><span class="num" data-target="300">0</span><small>Coffee Cups</small></div>
+      </div>
+    </section>
+
+    <!-- PROJECTS with filter + search -->
+    <section id="projects" class="section reveal">
+      <h2 class="title">Projects</h2>
+      <div class="controls">
+        <div class="filters">
+          <button class="filter active" data-filter="all">All</button>
+          <button class="filter" data-filter="web">Web</button>
+          <button class="filter" data-filter="game">Games</button>
+          <button class="filter" data-filter="tool">Tools</button>
+        </div>
+        <input type="search" id="search" placeholder="Search projects...">
+      </div>
+      <div class="grid" id="projectGrid">
+        <article class="card" data-cat="web"><h3>Portfolio Site</h3><p>Responsive personal website.</p><span class="tag">Web</span></article>
+        <article class="card" data-cat="game"><h3>Number Guess</h3><p>Guess the secret number game.</p><span class="tag">Game</span></article>
+        <article class="card" data-cat="tool"><h3>To-Do List</h3><p>Add, finish and delete tasks.</p><span class="tag">Tool</span></article>
+        <article class="card" data-cat="web"><h3>Blog Layout</h3><p>Clean article page design.</p><span class="tag">Web</span></article>
+        <article class="card" data-cat="tool"><h3>Unit Converter</h3><p>Convert length and weight.</p><span class="tag">Tool</span></article>
+        <article class="card" data-cat="game"><h3>Memory Cards</h3><p>Match the pairs quickly.</p><span class="tag">Game</span></article>
+      </div>
+      <p id="noResult" class="hidden">No projects found.</p>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section reveal">
+      <h2 class="title">Skills</h2>
+      <div class="skill"><label>HTML</label><div class="bar"><div class="fill" data-level="90"></div></div></div>
+      <div class="skill"><label>CSS</label><div class="bar"><div class="fill" data-level="80"></div></div></div>
+      <div class="skill"><label>JavaScript</label><div class="bar"><div class="fill" data-level="70"></div></div></div>
+    </section>
+
+    <!-- MINI TOOLS -->
+    <section id="tools" class="section reveal">
+      <h2 class="title">Try Something</h2>
+      <div class="tools">
+        <div class="tool-box">
+          <h3>To-Do List</h3>
+          <form id="todoForm">
+            <input id="todoInput" placeholder="Add a task..." required>
+            <button class="btn small">Add</button>
+          </form>
+          <ul id="todoList"></ul>
+        </div>
+        <div class="tool-box">
+          <h3>Guess the Number (1-20)</h3>
+          <form id="guessForm">
+            <input id="guessInput" type="number" min="1" max="20" placeholder="Your guess" required>
+            <button class="btn small">Guess</button>
+          </form>
+          <p id="guessMsg">Make a guess!</p>
+          <button id="guessReset" class="btn small ghost">New Game</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT with validation -->
+    <section id="contact" class="section reveal">
+      <h2 class="title">Contact</h2>
+      <form id="contactForm" novalidate>
+        <label>Name<input id="name" type="text"><small class="error"></small></label>
+        <label>Email<input id="email" type="email"><small class="error"></small></label>
+        <label>Message<textarea id="message" rows="4" maxlength="200"></textarea>
+          <small class="count"><span id="charCount">0</span>/200</small>
+          <small class="error"></small>
+        </label>
+        <button class="btn" type="submit">Send Message</button>
+        <p id="formSuccess" class="success hidden"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Your Name. Web Engineering, Assignment 01.</p>
+  </footer>
+
+  <button id="toTop" class="hidden" aria-label="Back to top">↑</button>
+  <script src="script.js"></script>
+</body>
+</html>
